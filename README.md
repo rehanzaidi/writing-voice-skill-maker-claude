@@ -4,6 +4,12 @@ Teach Claude to write in your voice — not a generic AI voice.
 
 ---
 
+## Source
+
+This skill was published at https://github.com/rehanzaidi/writing-voice-skill-maker-claude
+
+---
+
 ## The problem
 
 When you ask Claude to write something for you — an email, a LinkedIn post, a cover letter — it does a reasonable job. But it rarely sounds like *you*. It sounds like AI: a little too polished, a little too wordy, with phrases you'd never actually use.

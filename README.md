@@ -4,12 +4,6 @@ Teach Claude to write in your voice — not a generic AI voice.
 
 ---
 
-## Source
-
-This skill was published at https://github.com/rehanzaidi/writing-voice-skill-maker-claude
-
----
-
 ## The problem
 
 When you ask Claude to write something for you — an email, a LinkedIn post, a cover letter — it does a reasonable job. But it rarely sounds like *you*. It sounds like AI: a little too polished, a little too wordy, with phrases you'd never actually use.
@@ -123,6 +117,13 @@ Before updating, Claude saves your previous version automatically so you can rol
 - **For LinkedIn and social posts**, paste actual posts you've published if you have them. Structure matters a lot in short-form writing, and Claude can only learn your post structure from real examples — not from rewriting exercises.
 - **Raw is better than polished** — when pasting your own writing, use things as you actually sent or posted them, not cleaned-up versions.
 - **You can have multiple voice skills** — 'outreach-email-voice', 'linkedin-voice', 'cover-letter-voice' — each tuned for a different context.
+
+---
+
+## Changelog
+
+- **v1.2** — Major update to the AI writing indicators reference, based on the July 2026 revision of Wikipedia's ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) field guide. New indicator categories (copula avoidance, significance inflation, participial clause tails, vague authority attribution, promotional register, formatting tells), era-aware AI vocabulary so exercises match current-generation AI text, and two calibration sections — "Signs of human writing" and "Ineffective indicators" — that keep the skill maker from over-correcting genuinely human patterns or a formal personal register.
+- **v1.1** — Previous release.
 
 ---
 

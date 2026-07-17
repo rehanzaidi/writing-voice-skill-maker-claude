@@ -212,6 +212,11 @@ exercise, ask internally: "What style behavior is this snippet designed to elici
 is no explicit target behavior, the snippet is low-value. The quality of the AI text
 determines the quality of what can be inferred.
 
+**Era-match the probes.** AI vocabulary and tics shift by model generation (the reference
+file marks eras). Build exercises from current-generation tells — the AI text the user
+actually encounters and edits today — not stale caricatures. A passage stuffed with "delve"
+and "tapestry" reads as parody and elicits performative correction, not real editing behavior.
+
 **Exercise construction guidance** (do not share with user):
 
 Run exactly 3 exercises, with graduated difficulty:
@@ -232,8 +237,12 @@ Run exactly 3 exercises, with graduated difficulty:
   short ones that could be merged)
 - Transition scaffold ("First... Furthermore... Finally" or similar)
 - List or triad rhythm (three parallel items — does the user keep, cut, or restructure?)
-- Contrastive framing that invites reframing ("not just X, but Y")
-- Clause-tail endings that often get rewritten ("...which is essential for success")
+- Negative-parallelism framing that invites reframing ("not just X, but Y" / "It's not X —
+  it's Y" / "X rather than Y")
+- Participial clause tails that often get rewritten ("...highlighting its importance,"
+  "...ensuring long-term success")
+- Copula-swap pressure ("serves as a" / "boasts" / "features" where plain "is"/"has" would
+  do — does the user restore the plain verb?)
 
 Why structural probes matter: lexical edits are easy and common but weak as voice signal.
 Structural edits are harder to fake and more stable across topics. In short-form domains
@@ -309,7 +318,8 @@ delete it.
 Work from the raw text of what the user actually wrote. Do not paraphrase, reconstruct from
 memory, or clean up what you think you saw. If you quote any user writing in your analysis —
 even internally — copy it character-for-character: punctuation, hyphens, spacing, capitalization,
-fragments, all of it. A hyphen is a hyphen, not an em-dash. An incomplete sentence stays
+fragments, all of it. A hyphen is a hyphen, not an em-dash. A straight quote or apostrophe
+stays straight — do not convert to curly, or vice versa. An incomplete sentence stays
 incomplete. Editing user writing during analysis corrupts the fingerprint before the skill is
 even written — you would be encoding your voice, not theirs. Nothing is too small to preserve.
 
@@ -354,6 +364,10 @@ accidental "style" rules that are actually repair behavior.
   restructure a list, remove a transition scaffold, or reframe a contrast? Structural
   changes are harder to fake and more stable voice signal than word swaps.
 - What did they add that wasn't there? Additions are as diagnostic as deletions.
+- Watch for the user *introducing* markers of human writing (see "Signs of human writing"
+  in `references/ai-writing-indicators.md`): plain "is/has" restored over "serves as,"
+  blunt superlatives, casual hedges, comfortable word repetition, wordy constructions like
+  "in order to." These are voice signal to encode, never flaws to clean up in the skill.
 - What did they *not* change? Kept AI patterns reveal actual tolerance boundaries.
 - Infer the underlying principle behind each change, not just the surface correction.
 
@@ -416,11 +430,14 @@ Fill in the template. Key rules:
   or technical voices when that is the user's real style. Do not reward casualization by default.
   "Human-like" and "like this specific person" are not the same objective. If the evidence
   shows a restrained, precise, or formal voice, encode that — do not soften it toward
-  a generic personal-brand tone.
+  a generic personal-brand tone. Formality, perfect grammar, and academic vocabulary are
+  *not* AI tells (see "Ineffective indicators" in `references/ai-writing-indicators.md`) —
+  never encode rules against them without direct evidence that this user avoids them.
 - **Pre-output checklist**: derive items from evidence. Frame as active questions/checks.
 - **Examples**: use excerpts from the user's actual samples where possible. Do not fabricate.
   **VERBATIM RULE**: copy character-for-character — do not substitute typographic equivalents
-  (a hyphen is not an em-dash), do not smooth phrasing, do not fix punctuation, do not upgrade
+  (a hyphen is not an em-dash; a straight quote is not a curly quote), do not smooth phrasing,
+  do not fix punctuation, do not upgrade
   word choices. If you find yourself improving the user's writing before putting it in the
   examples section, stop. That improvement is the failure. The user's actual choices are the
   signal — editing them, even subtly, destroys it.

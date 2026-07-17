@@ -144,7 +144,10 @@ the `ask_user_input` tool:
 - Options:
   - "Automatically — whenever I'm writing [domain content]"
   - "On clear writing requests only — e.g. 'write a post' but not casual mentions"
-  - "Only when I explicitly ask — e.g. '/instagram-voice' or 'use my voice skill'"
+  - "Only when I explicitly ask — e.g. '/{skill-name}' or 'use my voice skill'"
+
+In the third option, substitute {skill-name} with the actual name confirmed in 1b (e.g.
+'/linkedin-voice') so the example matches the skill being built.
 
 Store the answer — it determines how the skill description is written later. Do not
 proceed to evidence collection until this is answered.
@@ -152,6 +155,12 @@ proceed to evidence collection until this is answered.
 ---
 
 ## Phase 2: Collect evidence
+
+**Evidence log** (referenced throughout this skill): the internal running record of what
+evidence was provided, what was skipped, and which patterns were directly observed vs.
+inferred — including any weighting or bias decisions made during analysis. It is never shown
+in conversation. It is written into the "Evidence log" section of the generated skill (see
+`templates/voice-skill-template.md`).
 
 Evidence comes from two sources. Both are optional individually, but at least one is required.
 They capture different things — and that distinction matters:
@@ -403,7 +412,8 @@ Fill in the template. Key rules:
   - *Explicit only*: "Only use this skill when {user} explicitly invokes it — e.g.
     '/{skill-name}', 'use my {skill-name} skill', or 'write this in my voice'. Do not
     trigger automatically."
-  voices when that is the user's real style. Do not reward casualization by default.
+- **Preserve the user's actual register.** The generated skill must permit formal, restrained,
+  or technical voices when that is the user's real style. Do not reward casualization by default.
   "Human-like" and "like this specific person" are not the same objective. If the evidence
   shows a restrained, precise, or formal voice, encode that — do not soften it toward
   a generic personal-brand tone.
@@ -418,7 +428,11 @@ Fill in the template. Key rules:
 ### 3c. Held-out validation (internal — before presenting to user)
 
 Before showing the skill to the user, mentally generate short outputs from these four prompts
-using only the skill as written — no conversation history, no evidence in context:
+using only the skill as written — no conversation history, no evidence in context.
+
+Adapt all four prompts to the skill's actual domain — the examples below are for an
+email-voice skill. A LinkedIn skill should use post prompts, a cover-letter skill application
+prompts, a PRD skill spec prompts, and so on:
 
 - **Detailed brief**: e.g. "write a follow-up email to a recruiter who just scheduled a call"
 - **Sparse bullets**: e.g. "follow up: call scheduled, excited, confirm time"
@@ -586,13 +600,21 @@ If packaging tools aren't available in this environment, save the SKILL.md to
 
 ### Install and usage reminder
 
-After presenting the file, always add:
+After presenting the file, always add the reminder below. The **To use** line must match the
+triggering preference captured in 1d — never tell the user the skill applies "automatically"
+unless that is what they chose:
+
+- *Automatic*: "once installed, just ask me to write a [domain noun] and your voice applies
+  on its own — you don't need to mention the skill."
+- *Clear writing requests*: "once installed, make a clear writing request — like 'write a
+  post' or 'draft an email' — and your voice applies. Casual mentions of [domain] won't
+  trigger it."
+- *Explicit only*: "once installed, invoke it by name — '/{skill-name}' or 'use my
+  {skill-name} skill' — and I'll write in your voice. It won't trigger on its own."
 
 > "**To install**: go to Settings → Skills in Claude.ai and upload this `.skill` file.
 >
-> **To use**: once installed, just ask me to write a [LinkedIn post / email / etc.] and I'll
-> apply your voice automatically. You can also say 'write this in my voice' or 'make this
-> sound like me' and it will trigger the skill.
+> **To use**: [insert the variant matching their 1d preference]
 >
 > If the output ever doesn't sound right, you can refine the skill anytime — just say
 > '/writing-voice-skill-maker refine my {skill-name} skill' and we'll patch whatever's off."
